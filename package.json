@@ -1,6 +1,6 @@
 {
   "name": "dmb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Darktide Mod Builder",
   "main": "dmb.js",
   "bin": "dmb.js",
