@@ -30,26 +30,26 @@ let defaultData = {
     mods_dir: '.',
     temp_dir: '',
 
-    game: 3,
+    game: 2,
 
-    game_id1: '235540',
-    game_id2: '552500',
+    game_id1: '0',
+    game_id2: '0',
 
-    tools_id1: '718610',
-    tools_id2: '866060',
+    tools_id1: '0',
+    tools_id2: '0',
 
-    fallback_tools_dir1: 'C:/Program Files (x86)/Steam/steamapps/common/Warhammer End Times Vermintide Mod Tools/',
-    fallback_tools_dir2: 'C:/Program Files (x86)/Steam/steamapps/common/Vermintide 2 SDK/',
+    fallback_tools_dir1: '.',
+    fallback_tools_dir2: '.',
 
-    fallback_steamapps_dir1: 'C:/Program Files (x86)/Steam/steamapps/',
-    fallback_steamapps_dir2: 'C:/Program Files (x86)/Steam/steamapps/',
+    fallback_steamapps_dir1: '.',
+    fallback_steamapps_dir2: '.',
 
     use_fallback: false,
 
     copy_source_code: false,
 
     bundle_extension1: '',
-    bundle_extension2: '.mod_bundle',
+    bundle_extension2: '',
 
     use_new_format1: false,
     use_new_format2: true,
@@ -58,9 +58,7 @@ let defaultData = {
 
     template_preview_image: "item_preview.png",
 
-    template_core_files: [
-        'core/**'
-    ],
+    template_core_files: [],
 
     include_dot_files: false,
 
@@ -82,7 +80,7 @@ let values = {
 
     modsDir: undefined,    // Folder with mods
     tempDir: undefined,    // Folder for temp files created by stingray.exe
-    gameNumber: undefined, // Vermintide 1 or 2 or Darktide (3)
+    gameNumber: undefined, // Vermintide 1 or 2
     gameId: undefined,     // Steam app id of Vermintide
     toolsId: undefined,    // Steam app id of Vermintide SDK
 
@@ -429,14 +427,8 @@ function _getGameNumber(gameNumber) {
         gameNumber = Number(newGameNumber);
     }
 
-    if (gameNumber !== 1 && gameNumber !== 2 && gameNumber !== 3) {
+    if (gameNumber !== 1 && gameNumber !== 2) {
         throw new Error(`Game #${gameNumber} hasn't been released yet. Check your ${values.filename}.`);
-    }
-
-    if (gameNumber === 3) {
-        console.log(`Game: Darktide ${gameNumber}`);
-    } else {
-        console.log(`Game: Vermintide ${gameNumber}`);
     }
 
     return gameNumber;
