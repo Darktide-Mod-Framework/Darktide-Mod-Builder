@@ -15,10 +15,6 @@ async function validateTemplate(templateDir) {
     if (!await pfs.accessibleDir(templateDir)) {
         throw new Error(`Template folder "${templateDir}" doesn't exist.`);
     }
-
-    if (!await pfs.accessibleFile(path.combine(templateDir, config.get('itemPreview')))) {
-        throw new Error(`Template folder "${templateDir}" doesn't have "${config.get('itemPreview')}" in it.`);
-    }
 }
 
 // Copies and renames mod template folder and its contents
@@ -51,16 +47,7 @@ async function copyTemplate(params) {
             .on('error', reject)
             .on('end', () => {
 
-                // Copy files that shouldn't be modified
-                if (config.get('coreSrc').length > 0) {
-                    vinyl.src(config.get('coreSrc'), { base: config.get('templateDir') })
-                        .pipe(vinyl.dest(modDir))
-                        .on('error', reject)
-                        .on('end', resolve);
-                }
-                else {
-                    resolve();
-                }
+                resolve();
             });
     });
 }

@@ -27,7 +27,7 @@ const defaultTempDir = '.temp';
 // Data that's written to default .vmbrc
 // Also used as a fallback for missing values
 let defaultData = {
-    mods_dir: 'mods',
+    mods_dir: '.',
     temp_dir: '',
 
     game: 2,
@@ -77,7 +77,7 @@ let data = {};
 // Actual config values
 let values = {
     dir: undefined,     // Folder with config file
-    filename: '.vmbrc', // Name of config file
+    filename: '.dmbrc', // Name of config file
     exeDir: undefined,  // Folder with vmb executable
 
     modsDir: undefined,    // Folder with mods
