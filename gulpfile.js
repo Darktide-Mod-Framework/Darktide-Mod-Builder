@@ -20,16 +20,15 @@ function zipVmb(version) {
 
         gulp.src(
             [
-                '.template/**/*',
-                '.template-vmf/**/*',
-                'vmb.exe',
+                '.template-dmf/**/*',
+                'dmb.exe',
                 'mods/',
                 //'README.md',
                 'LICENSE'
             ],
             { base: '.' }
         )
-        .pipe(zip(`vmb-${version}.zip`))
+        .pipe(zip(`dmb-${version}.zip`))
         .pipe(gulp.dest('.'))
         .on('end', () => resolve())
         .on('error', (err) => {

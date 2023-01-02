@@ -24,13 +24,13 @@ const os = require('os');
 
 const defaultTempDir = '.temp';
 
-// Data that's written to default .vmbrc
+// Data that's written to default .dmbrc
 // Also used as a fallback for missing values
 let defaultData = {
     mods_dir: '.',
     temp_dir: '',
 
-    game: 2,
+    game: 3,
 
     game_id1: '235540',
     game_id2: '552500',
@@ -82,7 +82,7 @@ let values = {
 
     modsDir: undefined,    // Folder with mods
     tempDir: undefined,    // Folder for temp files created by stingray.exe
-    gameNumber: undefined, // Vermintide 1 or 2
+    gameNumber: undefined, // Vermintide 1 or 2 or Darktide (3)
     gameId: undefined,     // Steam app id of Vermintide
     toolsId: undefined,    // Steam app id of Vermintide SDK
 
@@ -429,11 +429,15 @@ function _getGameNumber(gameNumber) {
         gameNumber = Number(newGameNumber);
     }
 
-    if (gameNumber !== 1 && gameNumber !== 2) {
-        throw new Error(`Vermintide ${gameNumber} hasn't been released yet. Check your ${values.filename}.`);
+    if (gameNumber !== 1 && gameNumber !== 2 && gameNumber !== 3) {
+        throw new Error(`Game #${gameNumber} hasn't been released yet. Check your ${values.filename}.`);
     }
 
-    console.log(`Game: Vermintide ${gameNumber}`);
+    if (gameNumber === 3) {
+        console.log(`Game: Darktide ${gameNumber}`);
+    } else {
+        console.log(`Game: Vermintide ${gameNumber}`);
+    }
 
     return gameNumber;
 }
