@@ -2,7 +2,7 @@ const print = require('./print');
 const version = require('./version');
 
 // vmb driver
-async function vmb(argv, configData) {
+async function dmb(argv, configData) {
 
     // Read command line parameters
     const cl = require('./modules/cl')(argv);
@@ -59,4 +59,4 @@ async function vmb(argv, configData) {
     return await taskManager.runTask(taskName);
 }
 
-module.exports = vmb;
+module.exports = dmb;

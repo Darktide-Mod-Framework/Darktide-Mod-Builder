@@ -1,8 +1,9 @@
 /**
+/node_modules/*
 
 !.gitignore
-!vmb.js
-!vmb-test.js
+!dmb.js
+!dmb-test.js
 !gulpfile.js
 !package.json
 !package-lock.json
@@ -16,7 +17,7 @@
 !/logo
 
 !/.template
-!/.template-vmf
+!/.template-dmf
 
 !.eslintrc.json
 

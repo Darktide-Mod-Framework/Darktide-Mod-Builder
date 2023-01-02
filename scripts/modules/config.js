@@ -54,7 +54,7 @@ let defaultData = {
     use_new_format1: false,
     use_new_format2: true,
 
-    template_dir: ".template-vmf",
+    template_dir: ".template-dmf",
 
     template_preview_image: "item_preview.png",
 

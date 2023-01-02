@@ -38,28 +38,6 @@ module.exports = async function taskCreate() {
         // Copy and customize template
         console.log(`Copying template from "${config.get('templateDir')}"`);
         await templater.copyTemplate(params);
-
-        // Copy placeholder bundle or .mod file depending on format used
-        if (config.get('useNewFormat')) {
-            await templater.createPlaceholderModFile(modName, params.content);
-        }
-        else {
-            await templater.createPlaceholderBundle(modName, params.content);
-        }
-
-        // Create .cfg file
-        params.filePath = cfg.getPath(modName);
-        await cfg.writeFile(params);
-
-        // Get path tosdk and upload mod
-        let modId = await uploader.uploadMod(await modTools.getModToolsDir(), modName);
-
-        // Print and optionally open url if -o flag was set
-        let modUrl = uploader.formUrl(modId);
-        let modSteamUrl = uploader.formSteamUrl(modId);
-        console.log(`Now you need to subscribe to ${modUrl} in order to be able to build and test your mod.`);
-        console.log(`Opening url...`);
-        await opn(modSteamUrl);
     }
     catch (error) {
         print.error(error);

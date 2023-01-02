@@ -1,9 +1,9 @@
 {
-  "name": "vmb",
-  "version": "1.8.0",
-  "description": "Vermintide Mod Builder",
-  "main": "vmb.js",
-  "bin": "vmb.js",
+  "name": "dmb",
+  "version": "2.0.0",
+  "description": "Darktide Mod Builder",
+  "main": "dmb.js",
+  "bin": "dmb.js",
   "pkg": {
     "assets": [
       "embedded/**/*"
@@ -34,11 +34,11 @@
     "start": "node vmb.js",
     "setup": "npm i gulp -g | npm i -s",
     "build": "gulp build",
-    "test": "node vmb-test"
+    "test": "node dmb-test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Vermintide-Modders/VMF-Build-Script"
+    "url": "https://github.com/Darktide-Mod-Framework/Darktide-Mod-Builder"
   },
   "author": "UnShame",
   "license": "UNLICENSED"
