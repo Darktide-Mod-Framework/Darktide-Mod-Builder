@@ -15,6 +15,7 @@
 
 !/embedded
 !/logo
+!/logo/**
 
 !/.template
 !/.template-dmf
