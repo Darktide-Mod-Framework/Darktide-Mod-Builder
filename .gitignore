@@ -19,6 +19,7 @@
 
 !/.template
 !/.template-dmf
+!/.template-dmf/**
 
 !.eslintrc.json
 
